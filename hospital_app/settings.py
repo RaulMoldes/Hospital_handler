@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap5',
     'RequestHandler',
 ]
 
@@ -52,10 +53,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'hospital_app.urls'
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,3 +126,9 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+EMAIL_HOST_USER="hospitalhandler@gmail.com"
+EMAIL_HOST_PASSWORD="HospitalHandler18051999"
