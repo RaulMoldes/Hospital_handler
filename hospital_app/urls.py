@@ -18,5 +18,6 @@ from django.urls import path
 from RequestHandler import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('form_patient.html/',views.search_patient)
+    path('form_patient.html/',views.insert_patient),
+    path('insert/',views.create_patient)
 ]
