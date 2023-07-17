@@ -2,16 +2,19 @@
 <html>
     <head>
         <title>Formulario para introducir pacientes</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
     </head>
     <body>
         <div class="container">
-        <form action="/buscar/" method = "GET">
-            <input type="number" name = "id" placeholder="Identifier" required>
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="text" name="surname" placeholder="Surname" required>
-            <input type="email" name="email" placeholder="E-mail">
-            <input type ="text" name="address" placeholder="Address">
-            <input type ="text" name="phone_number" placeholder="Phone_number">
+        <form action="/buscar/" method = "POST">
+            <input type="number" name = "id" placeholder="Identifier" required><br><br>
+            <input type="text" name="name" placeholder="Name" required><br><br>
+            <input type="text" name="surname" placeholder="Surname" required><br><br>
+            <input type="email" name="email" placeholder="E-mail"><br><br>
+            <input type ="text" name="address" placeholder="Address"><br><br>
+            <input type ="text" name="phone_number" placeholder="Phone_number"><br><br>
             <input type="submit" class="btn btn-primary" value="Send">
         </div>
     </body>
