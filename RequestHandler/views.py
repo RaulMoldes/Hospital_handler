@@ -1,23 +1,29 @@
 from django.shortcuts import render
-from hospital_app.forms import register_patient
+from RequestHandler.forms import register_patient_form,contact_form
 from RequestHandler.models import Patient
 from django import forms
+import hospital_app.settings 
+from django.core.mail import send_mail
 # Create your views here.
-def insert_patient(request):
-    return render(request,"form_patient.html")
 
-def create_patient(request):
-    if request.method == "POST":
-        my_forms = register_patient(request.POST)
-        if my_forms.is_valid():
-            info = my_forms.cleaned_data()
-            ##Acceder a la info 
-            patient = Patient()
-            patient.id = info["id"]
-            patient.name = info["name"]
-            patient.surname = info["surname"]
-            patient.email = info["email"]
-            patient.address = info["address"]
-            patient.phone_number = info["phone_number"]
-            patient.save()
-            print("Paciente guardado")
+'''def insert_patient(request):
+    return render(request,"form_patient.html")'''
+
+
+def home(request):
+    return render(request,"RequestHandler/home.html")
+
+def services(request):
+    return render(request,"RequestHandler/services.html")
+
+def account(request):
+    return render(request,"RequestHandler/account.html")
+
+def messages(request):
+    return render(request,"RequestHandler/messages.html")
+
+def patients(request):
+    return render(request,"RequestHandler/patients.html")
+
+def contact(request):
+    return render(request,"RequestHandler/contact.html")
