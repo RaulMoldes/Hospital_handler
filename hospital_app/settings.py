@@ -125,8 +125,16 @@ USE_L10N = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 ##from decouple import config
-##Esta parte no funciona
+##STATIC CONFIGURATION
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR,'hospital_app/static'),
+    )
 STATIC_URL = '/static/'
+#STATIC_ROOT = 'C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/static/'
+STATIC_ROOT = ''
+DEBUG = True
+
+#MAIL CONFIGURATION
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_USE_TLS=True

@@ -4,10 +4,12 @@
         <title>Home</title>
     
     <!-- Bootstrap -->
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <!-- {% load bootstrap5 %}
+    {% bootstrap_css %}-->
+    {%load static %}
+    {%load staticfiles%}
+    
+    <link href= "{%static 'hospital_app/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
 
      <!-- Fonts -->
     
@@ -16,7 +18,7 @@
      
 
     <!-- Styles -->
-    <link href="/css/gestion.css" rel="stylesheet">
+    <link href="{%static 'hospital_app/css/hospital_handler_styles.css'%}" rel="stylesheet">
     
     </head>
     
@@ -69,11 +71,11 @@
    <section class="page-section clearfix">
     <div class="container">
       <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="/img/logo.png" alt="">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" id="centerimg" src="{%static 'hospital_app/img/fig3.jpg'%}" alt="">
         <div class="intro-text left-0 text-center bg-faded p-5 rounded">
           <h2 class="section-heading mb-4" >
-            <span class="section-heading-upper">¿Qué es Hospital Handler?</span>
-            <span class="section-heading-lower">¿What is Hospital Handler?</span>
+            <span class="section-heading-upper"><strong>¿Quiénes somos?</strong></span>
+            <span class="section-heading-lower">¿Qué es Hospital Handler?</span>
           </h2>
           <p class="mb-3">Hospital Handler es una aplicación web para facilitar el trabajo a los profesionales sanitarios de todo el mundo.
           </p>
@@ -89,6 +91,7 @@
     <section class="page-section cta">
       <div class="container">
         <div class="row">
+          
           <div class="col-xl-9 mx-auto">
             <div class="cta-inner text-center rounded">
               <h2 class="section-heading mb-4">
@@ -136,8 +139,9 @@
 	</footer>
 
     <!-- Bootstrap -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{%static 'hospital_app/vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{%static 'hospital_app/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+   <!-- {% bootstrap_javascript %}-->
 
     </body>
 </html>

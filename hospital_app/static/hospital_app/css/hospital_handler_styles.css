@@ -1,6 +1,6 @@
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/bg_main.jpg");
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/fig1.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -24,8 +24,8 @@ p {
 }
 
 .site-heading {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
   text-transform: uppercase;
   line-height: 1;
   font-family: 'Raleway';
@@ -33,19 +33,19 @@ p {
 
 .site-heading .site-heading-upper {
   display: block;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 
 .site-heading .site-heading-lower {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 100;
-  line-height: 4rem;
+  line-height: 3rem;
 }
 
 .page-section {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .section-heading {
@@ -55,14 +55,14 @@ p {
 .section-heading .section-heading-upper {
   display: block;
   font-size: 1rem;
-  font-weight: 800;
-  padding-bottom:.5rem;
+  font-weight: 1000;
+  padding-bottom:.4rem;
 
 }
 
 .section-heading .section-heading-lower {
   display: block;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 100;
 }
 
@@ -72,7 +72,7 @@ p {
   font-size: 1rem;
   text-transform: none;
   font-weight: 300;
-  margin-top:.5rem;
+  margin-top:.4rem;
 }
 
 .bg-faded {
@@ -80,7 +80,7 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(24, 64, 8);
+  background-color: rgb(12, 84, 108);
   font-family: 'Raleway';
 }
 
@@ -134,7 +134,7 @@ p {
     left: 600;
     width: 60%;
     margin-top: 3rem;
-    background-color: rgba(24, 64, 8);
+    background-color: rgba(12, 84, 108);
     color: cornsilk;
     position: absolute;
   }
@@ -155,14 +155,20 @@ p {
 .cta {
   padding-top: 5rem;
   padding-bottom: 5rem;
-  background-color: rgb(242, 245, 240);
+  /*background-color: rgb(242, 245, 240);*/
+ 
 }
+
+/*.cta .container {
+  padding: 0px 0px 0px 0px;
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/fig3.png")
+}*/
 
 .cta .cta-inner {
   position: relative;
   padding: 3rem;
   margin: 0.5rem;
-  background-color: rgba(24, 64, 8);
+  background-color: rgba(12, 84, 108);
   color: cornsilk;
 }
 
@@ -229,7 +235,7 @@ p {
 }
 
 .footer {
-   background-color: rgba(24, 64, 8, 0.8);
+   background-color: rgba(12, 84, 108, 0.8);
 }
 
 
@@ -262,6 +268,7 @@ a.link{
 
 a.link:hover{
   text-decoration: none;
+  
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -276,4 +283,10 @@ ul.errorlist{
   padding-top: .75rem;
   font-style: italic;
   color: red;
+}
+
+#centerimg{
+  width:70%;
+  height:70%;
+  resize:both;
 }
