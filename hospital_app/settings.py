@@ -126,13 +126,16 @@ USE_L10N = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 ##from decouple import config
 ##STATIC CONFIGURATION
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'hospital_app/static'),
-    )
+
 STATIC_URL = '/static/'
 #STATIC_ROOT = 'C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/static/'
-STATIC_ROOT = ''
+STATIC_ROOT =  os.path.join(BASE_DIR,'hospital_app/static')
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'/media/')
+MEDIA_URL = '/media/'
 DEBUG = True
+
 
 #MAIL CONFIGURATION
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

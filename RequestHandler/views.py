@@ -13,9 +13,6 @@ from django.core.mail import send_mail
 def home(request):
     return render(request,"RequestHandler/home.html")
 
-def services(request):
-    return render(request,"RequestHandler/services.html")
-
 def account(request):
     return render(request,"RequestHandler/account.html")
 
@@ -27,3 +24,6 @@ def patients(request):
 
 def contact(request):
     return render(request,"RequestHandler/contact.html")
+
+def blog(request):
+    return render(request,"RequestHandler/blog.html")
