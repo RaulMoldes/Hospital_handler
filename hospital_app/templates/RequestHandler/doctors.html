@@ -4,7 +4,7 @@
 
 <!-- lista de pacientes -->
 <div class="container">
-    <h1 class="site-heading">Mis pacientes</h1>
+    <h1 class="site-heading">Mis médicos</h1>
 
     <div class="col-mt-5" >
 <table class="table table-light table-borderless" style= "border-radius:10px" border=0>
@@ -13,22 +13,22 @@
         <th class="col col-title" >Nombre</th>&nbsp;&nbsp;&nbsp;
         <th class="col col-title" >Apellido</th>
         <th class="col col-title" >Email</th>
-        <th class="col col-title" >Médico de cabecera</th>
+        <th class="col col-title" >Departamento</th>
         <th class="col col-title" >Info</th>
       
         <!-- Columnas -->
     </tr>
     </thead>
     <tbody>
-    {% for patient in patients %}
+    {% for doctor in doctors %}
 
-    {%if patient.hp_uuid == currentuser%}
+    {%if doctor.hp_uuid == currentuser%}
     <tr>
-        <td class="col col-display">{{ patient.name }}</td>
-        <td class="col col-display">{{ patient.surname }}</td>
-        <td class="col col-display">{{ patient.email }}</td>
-        <td class="col col-display">{{patient.doc_uuid.name}} {{patient.doc_uuid.surname}}</td>
-        <td class="col col-display"><a href="/patient_data/">Ver detalles</a></td>
+        <td class="col col-display">{{ doctor.name }}</td>
+        <td class="col col-display">{{ doctor.surname }}</td>
+        <td class="col col-display">{{ doctor.email }}</td>
+        <td class="col col-display">{{ doctor.department}}</td>
+        <td class="col col-display"><a href="/doctor_data/">Ver detalles</a></td>
         
     </tr>
     {%endif%}

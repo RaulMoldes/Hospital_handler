@@ -1,0 +1,39 @@
+{%extends "RequestHandler/base.html" %}
+{%load static%}
+{%block content%}
+
+<!-- lista de pacientes -->
+<div class="container">
+    <h1 class="site-heading">Próximas visitas</h1>
+
+    <div class="col-mt-5" >
+<table class="table table-light table-borderless" style= "border-radius:10px" border=0>
+    <thead>
+    <tr>
+        <th class="col col-title" >Doctor</th>
+        <th class="col col-title" >Paciente</th>
+        <th class="col col-title" >Fecha</th>
+        <th class="col col-title" >Info</th>
+      
+        <!-- Columnas -->
+    </tr>
+    </thead>
+    <tbody>
+    {% for visit in visits %}
+
+    {%if visit.hp_uuid == currentuser%}
+    <tr>
+        <td class="col col-display">{{ visit.doctor.name }} {{visit.doctor.surname}}</td>
+        <td class="col col-display">{{ visit.patient.name }} {{visit.patient.surname}}</td>
+        <td class="col col-display">{{ visit.date }}</td>
+        <td class="col col-display"><a href="/patient_data/">Ver detalles</a></td>
+        
+    </tr>
+    {%endif%}
+    <!-- Filas -->
+    {% endfor %}
+    </tbody>
+        </table>
+        </div>
+    </div>
+{%endblock%}

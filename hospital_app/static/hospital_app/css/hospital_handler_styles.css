@@ -23,12 +23,13 @@ p {
   color: rgba(255, 255, 255, 0.904);
 }
 
-.site-heading {
+.site-heading  {
   margin-top: 4rem;
   margin-bottom: 4rem;
   text-transform: uppercase;
   line-height: 1;
   font-family: 'Raleway';
+  color:white;
 }
 
 .site-heading .site-heading-upper {
@@ -65,6 +66,39 @@ p {
   font-size: 2rem;
   font-weight: 100;
 }
+
+.col-title{
+  font-family:'Raleway';
+  font-size:20px;
+  font-weight: bolder;
+  
+  
+}
+.row{
+  border-top:none;
+  border-bottom:none;
+  
+ }
+
+.col{
+  text-align:center;
+  border-top:none;
+  border-bottom:none;
+  width:100px;
+  
+}
+.col-display{
+  font-family:'Raleway';
+  
+
+}
+
+.table{
+  text-align:center;
+  border:none;
+  padding:0;
+}
+
 
 
 .section-heading .section-heading-under {
