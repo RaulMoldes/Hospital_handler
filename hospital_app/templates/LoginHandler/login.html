@@ -1,0 +1,16 @@
+{% extends 'RequestHandler/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2 class="site-heading" style="color:white">Iniciar sesión</h2>
+        <form class= "site-heading lower" style="color:white" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-xl">Iniciar sesión</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

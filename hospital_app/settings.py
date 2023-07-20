@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'RequestHandler',
+    'LoginHandler',
 ]
 
 MIDDLEWARE = [
@@ -107,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'LoginHandler.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -129,9 +131,9 @@ USE_L10N = True
 
 STATIC_URL = '/static/'
 #STATIC_ROOT = 'C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/static/'
-STATIC_ROOT =  os.path.join(BASE_DIR,'hospital_app/static')
-
-
+STATIC_ROOT =  ''
+STATICFILES_DIRS = ( os.path.join(BASE_DIR,'hospital_app/static'),)
+#MEDIA CONFIGURATION
 MEDIA_ROOT = os.path.join(BASE_DIR,'/media/')
 MEDIA_URL = '/media/'
 DEBUG = True

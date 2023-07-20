@@ -19,5 +19,6 @@ from RequestHandler import views
 from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('RequestHandler.urls'))
+    path('',include('RequestHandler.urls')),
+    path('auth/',include('LoginHandler.urls'))
 ]

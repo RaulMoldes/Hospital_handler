@@ -1,8 +1,9 @@
 <DOCTYPE html>
-    <html>
+    <html lang="es">
         <head>
             <title>Home</title>
-        
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <!-- Bootstrap -->
        <!-- {% load bootstrap5 %}
         {% bootstrap_css %}-->
@@ -40,8 +41,9 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item active px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="">Inicio</a>
+                <a class="nav-link text-uppercase text-expanded" href="home.html">Inicio</a>
               </li>
+              {%if request.user.is_authenticated %}
               <li class="nav-item px-lg-4">
                 <a class="nav-link text-uppercase text-expanded" href="/account/">Mi cuenta</a>
               </li>
@@ -51,6 +53,17 @@
               <li class="nav-item px-lg-4">
                 <a class="nav-link text-uppercase text-expanded" href="/messages/">Chat</a>
               </li>
+              <li class="nav-item px-lg-4">
+                <a class="nav-link text-uppercase text-expanded" href="/auth/logout">Cerrar sesión</a>
+              </li>
+              {%else%}
+              <li class="nav-item px-lg-4">
+                <a class="nav-link text-uppercase text-expanded" href="/auth/login">Iniciar sesión</a>
+              </li>
+              <li class="nav-item px-lg-4">
+                <a class="nav-link text-uppercase text-expanded" href="/auth/register">Registrarse</a>
+              </li>
+              {%endif%}
               <li class="nav-item px-lg-4">
                 <a class="nav-link text-uppercase text-expanded" href="/contact/">Contacto</a>
               </li>

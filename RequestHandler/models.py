@@ -1,29 +1,14 @@
 from django.db import models
-
+from LoginHandler.models import User
 # Create your models here.
 from django.db import models
 from datetime import datetime
 # Create your models here.
 
-class Patient(models.Model):
-    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=30)
-    surname = models.CharField(max_length=30)
-    address = models.CharField(max_length=50)
-    email = models.EmailField(blank=True,null=True)
-    phone_number = models.CharField(max_length=9)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
-    
-    class Meta:
-        verbose_name = 'paciente'
-        verbose_name_plural = 'pacientes'
-    
-    def __str__(self):
-        return self.name
 
 class Doctor(models.Model):
     id = models.IntegerField(primary_key=True)
+    hp_uuid = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="doctors")
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
@@ -37,6 +22,26 @@ class Doctor(models.Model):
     class Meta:
         verbose_name = 'doctor'
         verbose_name_plural = 'doctores'
+    
+    def __str__(self):
+        return self.name
+    
+
+class Patient(models.Model):
+    id = models.IntegerField(primary_key=True)
+    hp_uuid = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
+    doc_uuid = models.ForeignKey(Doctor,null = True, on_delete=models.CASCADE)
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    address = models.CharField(max_length=50)
+    email = models.EmailField(blank=True,null=True)
+    phone_number = models.CharField(max_length=9)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name = 'paciente'
+        verbose_name_plural = 'pacientes'
     
     def __str__(self):
         return self.name

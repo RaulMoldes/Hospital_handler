@@ -1,0 +1,24 @@
+{% extends 'RequestHandler/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2 class="site-heading" style="color:white">Registrarse</h2>
+        <form class= "site-heading lower" style="color:white" method="post">
+          {% csrf_token %}
+		  {% for field in form %}
+		  <div class="form-group{% if field.errors %} has-error{% endif %}">
+			<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+			{{ field }}
+			{% for error in field.errors %}
+			  <br><strong><span class="help-block">{{ error }}</span></strong><br>
+			{% endfor %}
+		  </div>
+		{% endfor %}
+          <button type="submit" class="btn btn-xl">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
