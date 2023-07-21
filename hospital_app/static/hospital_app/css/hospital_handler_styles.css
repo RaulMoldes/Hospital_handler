@@ -66,6 +66,16 @@ p {
   font-size: 2rem;
   font-weight: 100;
 }
+.profile-picts{
+  width : 200px;
+  resize : both;
+  border-radius:10%;
+  border:solid 2px #ffffff;
+  margin-top:0;
+}
+h4{
+  font-weight:bolder;
+}
 
 .col-title{
   font-family:'Raleway';
@@ -73,6 +83,10 @@ p {
   font-weight: bolder;
   
   
+}
+
+.col-mt-5{
+  color:#ffffff;
 }
 .row{
   border-top:none;

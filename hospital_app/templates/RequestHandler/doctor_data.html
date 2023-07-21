@@ -1,9 +1,28 @@
 {%extends "RequestHandler/base.html" %}
-{%load static%}
+
 {%block content%}
 
-<!-- datos del paciente -->
+<!-- datos del doctor -->
+
 <div class="container">
-    <h3 class="site-heading">Datos del doctor {{doctor_data.name}} {{doctor_data.surname}}</h3>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h2 class="site-heading" style="color:white">Doctor {{doctor_data.name}} {{doctor_data.surname}}</h2>
+        <form class= "site-heading lower" style="color:white" method="post">
+          {% csrf_token %}
+		  {% for field in form %}
+		  <div class="form-group{% if field.errors %} has-error{% endif %}">
+			<label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+			{{ field }}
+			{% for error in field.errors %}
+			  <br><strong><span class="help-block">{{ error }}</span></strong><br>
+			{% endfor %}
+		  </div>
+		{% endfor %}
+          <button type="submit" class="btn btn-xl">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>       
 
 {%endblock%}

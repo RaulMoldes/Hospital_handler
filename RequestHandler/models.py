@@ -10,6 +10,7 @@ class Doctor(models.Model):
     id = models.IntegerField(primary_key=True)
     hospital = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="doctors")
+    license_number = models.IntegerField(null = True)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     address = models.CharField(max_length=50)

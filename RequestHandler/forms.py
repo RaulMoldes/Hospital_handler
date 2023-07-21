@@ -1,14 +1,13 @@
 from django import forms
+from .models import Patient,Doctor
 
-class register_patient_form(forms.Form):
-    id = forms.IntegerField()
-    name = forms.CharField()
-    surname = forms.CharField()
-    address = forms.CharField()
-    email = forms.EmailField()
-    phone_number = forms.CharField()
-    
-class contact_form(forms.Form):
-    receiver = forms.EmailField()
-    subject = forms.CharField()
-    content = forms.CharField()
+class patient_form(forms.ModelForm):
+    class Meta:
+        model = Patient
+        fields = ['id','name', 'surname', 'email', 'hospital','address','phone_number']
+        
+
+class doctor_form(forms.ModelForm):
+    class Meta:
+        model = Doctor
+        fields = ['id','name', 'surname', 'email', 'hospital','department','address','phone_number']

@@ -19,3 +19,5 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'hospital_name', 'email','password1', 'password2']
+        
+        

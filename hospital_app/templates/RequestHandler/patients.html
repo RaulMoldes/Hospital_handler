@@ -28,14 +28,16 @@
         <td class="col col-display">{{ patient.surname }}</td>
         <td class="col col-display">{{ patient.email }}</td>
         <td class="col col-display">{{patient.doctor.name}} {{patient.doctor.surname}}</td>
-        <td class="col col-display"><a href="{% url 'PatientData' patient.id %}">Ver detalles</a></td>
-        
+        <td class="col col-display"><a href="{% url 'PatientData' patient.id %}">Modificar</a></td>
+        <td class="col col-display"><a href="{% url 'DeletePatient' patient.id %}">Borrar</a></td>
     </tr>
     {%endif%}
     <!-- Filas -->
     {% endfor %}
     </tbody>
         </table>
+        <a class = "btn btn-xl" href="{% url 'AddPatient' %}">Añadir paciente</a>
         </div>
+       
     </div>
 {%endblock%}
