@@ -39,12 +39,12 @@ def patient_data(request,patient_id):
         form = patient_form(request.POST, instance=patient)
         if form.is_valid():
             form.save()
-            
+            return redirect('Patients')   
             
     else:
         form = patient_form(instance=patient)
         
-    return render(request,"RequestHandler/patient_data.html",{"patient_data":patient,"form":form})
+        return render(request,"RequestHandler/patient_data.html",{"patient_data":patient,"form":form})
 
 @login_required
 def add_patient(request):
@@ -60,11 +60,10 @@ def add_patient(request):
 @login_required
 def delete_patient(request, patient_id):
     patient = Patient.objects.get(id=patient_id)
-    
-    if request.method == 'POST':
-        patient.delete()
-
+    patient.delete()
     return redirect('Patients')
+
+    
 
 @login_required
 def doctor_data(request,doctor_id):
