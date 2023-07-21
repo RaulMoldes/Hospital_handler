@@ -21,12 +21,12 @@
     <tbody>
     {% for visit in visits %}
 
-    {%if visit.hp_uuid == currentuser%}
+    {%if visit.hospital == currentuser%}
     <tr>
         <td class="col col-display">{{ visit.doctor.name }} {{visit.doctor.surname}}</td>
         <td class="col col-display">{{ visit.patient.name }} {{visit.patient.surname}}</td>
         <td class="col col-display">{{ visit.date }}</td>
-        <td class="col col-display"><a href="/patient_data/">Ver detalles</a></td>
+        <td class="col col-display"><a href="{% url 'VisittData' visit.id %}">Ver detalles</a></td>
         
     </tr>
     {%endif%}

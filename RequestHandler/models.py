@@ -8,7 +8,7 @@ from datetime import datetime
 
 class Doctor(models.Model):
     id = models.IntegerField(primary_key=True)
-    hp_uuid = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
+    hospital = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
     image = models.ImageField(upload_to="doctors")
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
@@ -29,8 +29,8 @@ class Doctor(models.Model):
 
 class Patient(models.Model):
     id = models.IntegerField(primary_key=True)
-    hp_uuid = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
-    doc_uuid = models.ForeignKey(Doctor,null = True, on_delete=models.CASCADE)
+    hospital = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor,null = True, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -48,6 +48,8 @@ class Patient(models.Model):
     
 class Treatment(models.Model):
     id = models.IntegerField(primary_key=True)
+    patient = models.ForeignKey(Patient,null=True,on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor,null=True,on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     section = models.CharField(max_length=30)
     description = models.CharField(max_length=250)
@@ -68,6 +70,8 @@ class Treatment(models.Model):
     
 class Diagnosis(models.Model):
     id = models.IntegerField(primary_key=True)
+    patient = models.ForeignKey(Patient,null=True,on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor,null=True,on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     section = models.CharField(max_length=30)
     description = models.CharField(max_length=250)
@@ -90,9 +94,8 @@ class Visit(models.Model):
     patient = models.ForeignKey(Patient, null=False,on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, null=False,on_delete=models.CASCADE)
     date = models.DateField(max_length=30)
-    diagnosis = models.ForeignKey(Diagnosis, on_delete=models.PROTECT)
-    treatment_prescribed = models.BooleanField()
-    treatment = models.ForeignKey(Treatment,on_delete=models.PROTECT)
+    diagnosis = models.ForeignKey(Diagnosis,null = True, on_delete=models.PROTECT)
+    treatment = models.ForeignKey(Treatment,null = True,on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
     

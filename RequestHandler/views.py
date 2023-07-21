@@ -15,7 +15,6 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request,"RequestHandler/home.html")
 
-
 @login_required
 def patients(request):
     allpatients = Patient.objects.all()
@@ -31,8 +30,17 @@ def doctors(request):
     alldoctors = Doctor.objects.all()
     return render(request,"RequestHandler/doctors.html",{"doctors":alldoctors,"currentuser": request.user})
 
-def contact(request):
-    return render(request,"RequestHandler/contact.html")
+@login_required
+def patient_data(request,patient_id):
+    patient = Patient.objects.get(id=patient_id)
+    return render(request,"RequestHandler/patient_data.html",{"patient_data":patient})
 
-def blog(request):
-    return render(request,"RequestHandler/blog.html")
+@login_required
+def doctor_data(request,doctor_id):
+    doctor = Doctor.objects.get(id=doctor_id)
+    return render(request,"RequestHandler/doctor_data.html",{"doctor_data":doctor})
+
+@login_required
+def visit_data(request,visit_id):
+    visit = Visit.objects.get(id=visit_id)
+    return render(request,"RequestHandler/visit_data.html",{"visit_data":visit})
