@@ -41,7 +41,7 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item active px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href='home.html'>Inicio</a>
+                <a class="nav-link text-uppercase text-expanded" href="{% url 'Home'%}">Inicio</a>
               </li>
               {%if request.user.is_authenticated %}
               <li class="nav-item px-lg-4">

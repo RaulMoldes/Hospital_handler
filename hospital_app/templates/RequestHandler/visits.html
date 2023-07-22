@@ -13,6 +13,7 @@
         <th class="col col-title" >Doctor</th>
         <th class="col col-title" >Paciente</th>
         <th class="col col-title" >Fecha</th>
+        <th class="col col-title" >Motivo de la visita</th>
         <th class="col col-title" colspan="2">Acciones</th>
       
         <!-- Columnas -->
@@ -26,6 +27,7 @@
         <td class="col col-display">{{ visit.doctor.name }} {{visit.doctor.surname}}</td>
         <td class="col col-display">{{ visit.patient.name }} {{visit.patient.surname}}</td>
         <td class="col col-display">{{ visit.date }}</td>
+        <td class="col col-display">{{ visit.procedure.name }}</td>
         <td class="col col-display"><a href="{% url 'VisitData' visit.id %}">Modificar datos</a></td>
         <td class="col col-display"><a href="{% url 'DeleteVisit' visit.id %}">Borrar</a></td>
         
