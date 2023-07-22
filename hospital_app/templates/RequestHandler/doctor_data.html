@@ -7,7 +7,11 @@
 <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
+        {%if doctor_data%}
         <h2 class="site-heading" style="color:white">Doctor {{doctor_data.name}} {{doctor_data.surname}}</h2>
+        {%else%}
+        <h2 class="site-heading" style="color:white">Nuevo doctor</h2>
+        {%endif%}
         <form class= "site-heading lower" style="color:white" method="post">
           {% csrf_token %}
 		  {% for field in form %}

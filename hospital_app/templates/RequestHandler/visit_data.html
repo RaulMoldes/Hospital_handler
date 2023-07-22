@@ -2,8 +2,30 @@
 {%load static%}
 {%block content%}
 
-<!-- datos del paciente -->
+<!-- datos de la visita -->
 <div class="container">
-    <h3 class="site-heading">Datos de la visita con fecha {{visit_data.date}}</h3>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        {%if visit_data%}
+        <h2 class="site-heading" style="color:white">Visita con fecha: {{visit_data.date}}</h2>
+        {%else%}
+        <h2 class="site-heading" style="color:white">Nueva visita</h2>
+        {%endif%}
+        <form class= "site-heading lower" style="color:white" method="post">
+          {% csrf_token %}
+		  {% for field in form %}
+		  <div class="form-group{% if field.errors %} has-error{% endif %}">
+			<label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+			{{ field }}
+			{% for error in field.errors %}
+			  <br><strong><span class="help-block">{{ error }}</span></strong><br>
+			{% endfor %}
+		  </div>
+		{% endfor %}
+          <button type="submit" class="btn btn-xl">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
 {%endblock%}

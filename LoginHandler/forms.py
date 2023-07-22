@@ -10,7 +10,7 @@ class LoginForm(forms.Form):
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label="Identificador",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.CharField(label="E-mail",max_length=65,widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label="E-mail",max_length=65,widget=forms.EmailInput(attrs={'class': 'form-control'}))
     password1 = forms.CharField(label="Contraseña",max_length=65, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(label="Confirmar contraseña",max_length=65, widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     hospital_name = forms.CharField(label="Nombre del hospital",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))

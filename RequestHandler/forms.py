@@ -1,13 +1,48 @@
 from django import forms
-from .models import Patient,Doctor
+from .models import Patient,Doctor,Visit,Diagnosis,Treatment
+from LoginHandler.models import User
 
 class patient_form(forms.ModelForm):
+    
+    name = forms.CharField(label="Nombre",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    surname = forms.CharField(label="Apellido",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    image = forms.ImageField(label="Foto de perfil",widget=forms.FileInput(attrs={'class':  'file-input'}))
+    email = forms.EmailField(label="E-mail",max_length=65,widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    hospital = forms.ModelChoiceField(queryset=User.objects.all(),label="Hospital de referencia",widget = forms.Select(attrs={'class':'form-control'}))
+    doctor = forms.ModelChoiceField(queryset=Doctor.objects.all(),label="Médico de cabecera",widget = forms.Select(attrs={'class':'form-control'}))
+    address = forms.CharField(label="Dirección",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    phone_number = forms.CharField(label="Nº de teléfono",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Patient
-        fields = ['id','name', 'surname', 'email', 'hospital','address','phone_number']
+        fields = ['name', 'surname','image','doctor','email', 'hospital','address','phone_number']
         
 
 class doctor_form(forms.ModelForm):
+        
+    name = forms.CharField(label="Nombre",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    surname = forms.CharField(label="Apellido",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    image = forms.ImageField(label="Foto de perfil",widget=forms.FileInput(attrs={'class': 'file-input'}))
+    email = forms.EmailField(label="E-mail",max_length=65,widget=forms.EmailInput(attrs={'class': 'form-control'}))
+    hospital = forms.ModelChoiceField(queryset=User.objects.all(),label="Hospital de referencia",widget = forms.Select(attrs={'class':'form-control'}))
+    department = forms.CharField(label="Departamento",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    address = forms.CharField(label="Dirección",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    phone_number = forms.CharField(label="Nº de teléfono",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    
     class Meta:
         model = Doctor
-        fields = ['id','name', 'surname', 'email', 'hospital','department','address','phone_number']
+        fields = ['name', 'surname','image','email', 'hospital','department','address','phone_number']
+        
+
+
+class visit_form(forms.ModelForm):
+        
+    patient = forms.ModelChoiceField(queryset=Patient.objects.all(),label="Paciente",widget=forms.Select(attrs={'class': 'form-control'}))
+    doctor = forms.ModelChoiceField(queryset=Doctor.objects.all(),label="Doctor",widget=forms.Select(attrs={'class': 'form-control'}))
+    date = forms.DateField(label="Fecha de la visita",widget=forms.DateInput(attrs={'class': 'form-control'}))
+    hospital = forms.ModelChoiceField(queryset=User.objects.all(),label="Hospital de referencia",widget = forms.Select(attrs={'class':'form-control'}))
+    diagnosis = forms.ModelChoiceField(queryset=Diagnosis.objects.all(),label="Diagnóstico establecido",widget = forms.Select(attrs={'class':'form-control'}))
+    treatment = forms.ModelChoiceField(queryset=Treatment.objects.all(),label="Tratamiento prescrito",widget = forms.Select(attrs={'class':'form-control'}))
+    
+    class Meta:
+        model = Doctor
+        fields = ['hospital','patient', 'doctor','date','diagnosis', 'treatment']

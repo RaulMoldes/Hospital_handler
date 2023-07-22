@@ -13,7 +13,7 @@
         <th class="col col-title" >Doctor</th>
         <th class="col col-title" >Paciente</th>
         <th class="col col-title" >Fecha</th>
-        <th class="col col-title" >Info</th>
+        <th class="col col-title" colspan="2">Acciones</th>
       
         <!-- Columnas -->
     </tr>
@@ -26,7 +26,8 @@
         <td class="col col-display">{{ visit.doctor.name }} {{visit.doctor.surname}}</td>
         <td class="col col-display">{{ visit.patient.name }} {{visit.patient.surname}}</td>
         <td class="col col-display">{{ visit.date }}</td>
-        <td class="col col-display"><a href="{% url 'VisittData' visit.id %}">Ver detalles</a></td>
+        <td class="col col-display"><a href="{% url 'VisitData' visit.id %}">Modificar datos</a></td>
+        <td class="col col-display"><a href="{% url 'DeleteVisit' visit.id %}">Borrar</a></td>
         
     </tr>
     {%endif%}
@@ -34,6 +35,9 @@
     {% endfor %}
     </tbody>
         </table>
+            <a class = "btn btn-xl" style="align-self:right" href="{% url 'AddVisit' %}">Añadir visita</a>
         </div>
+        <br>
+        <br>
     </div>
 {%endblock%}

@@ -113,7 +113,15 @@ h4{
   padding:0;
 }
 
-
+.alert-error{
+  color:red;
+  background-color:rgba(235, 252, 255, 0.527);
+  border-radius:5%;
+  font-style: bolder;
+  font-family:'Lora';
+  margin-top:10px;
+  border:solid 2px black;
+}
 
 .section-heading .section-heading-under {
   display: block;

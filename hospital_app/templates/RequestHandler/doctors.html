@@ -14,7 +14,7 @@
         <th class="col col-title" >Apellido</th>
         <th class="col col-title" >Email</th>
         <th class="col col-title" >Departamento</th>
-        <th class="col col-title" >Info</th>
+        <th class="col col-title" colspan="2" >Acciones</th>
       
         <!-- Columnas -->
     </tr>
@@ -28,14 +28,26 @@
         <td class="col col-display">{{ doctor.surname }}</td>
         <td class="col col-display">{{ doctor.email }}</td>
         <td class="col col-display">{{ doctor.department}}</td>
-        <td class="col col-display"><a href="{% url 'DoctorData' doctor.id %}">Ver detalles</a></td>
-        
+        <td class="col col-display"><a href="{% url 'DoctorData' doctor.id %}">Modificar datos</a></td>
+        <td class="col col-display"><a href="{% url 'DeleteDoctor' doctor.id %}">Borrar</a></td>
     </tr>
     {%endif%}
     <!-- Filas -->
     {% endfor %}
     </tbody>
         </table>
+            <a class = "btn btn-xl" style="align-self:right" href="{% url 'AddDoctor' %}">Añadir doctor</a>
         </div>
+        {% if messages %}
+        {%for message in messages%}
+            {%if message.tags == 'error'%}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+            {%endif%}
+            {%endfor%}
+        {% endif %}
+        <br>
+        <br>
     </div>
 {%endblock%}

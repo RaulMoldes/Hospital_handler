@@ -7,10 +7,9 @@ from datetime import datetime
 
 
 class Doctor(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     hospital = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="doctors")
-    license_number = models.IntegerField(null = True)
+    image = models.ImageField(upload_to="doctors",default='doctors/doc1.png')
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -29,9 +28,10 @@ class Doctor(models.Model):
     
 
 class Patient(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     hospital = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
-    doctor = models.ForeignKey(Doctor,null = True, on_delete=models.CASCADE)
+    doctor = models.ForeignKey(Doctor,null = True, on_delete=models.PROTECT)
+    image = models.ImageField(upload_to="patients",default='patients/pat1.png')
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -47,17 +47,45 @@ class Patient(models.Model):
     def __str__(self):
         return self.name
     
-class Treatment(models.Model):
-    id = models.IntegerField(primary_key=True)
-    patient = models.ForeignKey(Patient,null=True,on_delete=models.CASCADE)
-    doctor = models.ForeignKey(Doctor,null=True,on_delete=models.CASCADE)
+class Procedure(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
     section = models.CharField(max_length=30)
     description = models.CharField(max_length=250)
-    type = models.CharField(max_length=30)
+    chapter = models.CharField(max_length=30)
+    code = models.CharField(max_length=30)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name = 'procedimiento'
+        verbose_name_plural = 'procedimientos'
+    
+    def __str__(self):
+        return self.name
+    
+class Parameter(models.Model):
+    id = models.AutoField(primary_key = True)
+    name = models.CharField(max_length=65)
+    units = models.CharField(max_length=30)
+    code = models.CharField(max_length = 35)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        verbose_name = 'parámetro'
+        verbose_name_plural = 'parámetros'
+    
+    def __str__(self):
+        return self.name
+    
+class Treatment(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=30)
+    section = models.CharField(max_length=30)
+    description = models.CharField(max_length=250)
     start_date = models.DateField()
     end_date = models.DateField()
-    price = models.IntegerField()
     code = models.CharField(max_length=30)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
@@ -70,14 +98,11 @@ class Treatment(models.Model):
         return self.name
     
 class Diagnosis(models.Model):
-    id = models.IntegerField(primary_key=True)
-    patient = models.ForeignKey(Patient,null=True,on_delete=models.CASCADE)
-    doctor = models.ForeignKey(Doctor,null=True,on_delete=models.CASCADE)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
     section = models.CharField(max_length=30)
     description = models.CharField(max_length=250)
     type = models.CharField(max_length=30)
-    result = models.BooleanField()
     code = models.CharField(max_length=30)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
@@ -90,7 +115,7 @@ class Diagnosis(models.Model):
         return self.name
 
 class Visit(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     hp_uuid = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, null=False,on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, null=False,on_delete=models.CASCADE)

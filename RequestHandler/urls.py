@@ -14,6 +14,10 @@ urlpatterns = [
     path('visit_data/<int:visit_id>',views.visit_data,name="VisitData"),
     path('add_patient/', views.add_patient, name='AddPatient'),
     path('delete_patient/<int:patient_id>', views.delete_patient, name='DeletePatient'),
+    path('add_doctor/', views.add_doctor, name='AddDoctor'),
+    path('delete_doctor/<int:doctor_id>', views.delete_doctor, name='DeleteDoctor'),
+    path('add_visit/', views.add_visit, name='AddVisit'),
+    path('delete_visit/<int:visit_id>', views.delete_visit, name='DeleteVisit'),
     
 ]
 urlpatterns+=static(settings.MEDIA_URL,document_root =settings.MEDIA_ROOT)

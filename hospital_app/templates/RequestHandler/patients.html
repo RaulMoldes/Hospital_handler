@@ -14,7 +14,7 @@
         <th class="col col-title" >Apellido</th>
         <th class="col col-title" >Email</th>
         <th class="col col-title" >Médico de cabecera</th>
-        <th class="col col-title" >Info</th>
+        <th class="col col-title" colspan="2">Acciones</th>
       
         <!-- Columnas -->
     </tr>
@@ -28,16 +28,17 @@
         <td class="col col-display">{{ patient.surname }}</td>
         <td class="col col-display">{{ patient.email }}</td>
         <td class="col col-display">{{patient.doctor.name}} {{patient.doctor.surname}}</td>
-        <td class="col col-display"><a href="{% url 'PatientData' patient.id %}">Modificar</a></td>
+        <td class="col col-display"><a href="{% url 'PatientData' patient.id %}">Modificar datos</a></td>
         <td class="col col-display"><a href="{% url 'DeletePatient' patient.id %}">Borrar</a></td>
     </tr>
     {%endif%}
     <!-- Filas -->
     {% endfor %}
     </tbody>
-        </table>
-        <a class = "btn btn-xl" href="{% url 'AddPatient' %}">Añadir paciente</a>
+        </table>    
+            <a class = "btn btn-xl" style="align-self:right" href="{% url 'AddPatient' %}">Añadir paciente</a>
         </div>
-       
+        <br>
+        <br>
     </div>
 {%endblock%}
