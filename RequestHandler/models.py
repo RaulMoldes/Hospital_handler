@@ -51,6 +51,7 @@ class Procedure(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30)
     section = models.CharField(max_length=30)
+    subsection = models.CharField(max_length=30)
     description = models.CharField(max_length=250)
     chapter = models.CharField(max_length=30)
     code = models.CharField(max_length=30)
@@ -63,56 +64,8 @@ class Procedure(models.Model):
     
     def __str__(self):
         return self.name
-    
-class Parameter(models.Model):
-    id = models.AutoField(primary_key = True)
-    name = models.CharField(max_length=65)
-    units = models.CharField(max_length=30)
-    code = models.CharField(max_length = 35)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
-    
-    class Meta:
-        verbose_name = 'parámetro'
-        verbose_name_plural = 'parámetros'
-    
-    def __str__(self):
-        return self.name
-    
-class Treatment(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=30)
-    section = models.CharField(max_length=30)
-    description = models.CharField(max_length=250)
-    start_date = models.DateField()
-    end_date = models.DateField()
-    code = models.CharField(max_length=30)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
-    
-    class Meta:
-        verbose_name = 'tratamiento'
-        verbose_name_plural = 'tratamientos'
-    
-    def __str__(self):
-        return self.name
-    
-class Diagnosis(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=30)
-    section = models.CharField(max_length=30)
-    description = models.CharField(max_length=250)
-    type = models.CharField(max_length=30)
-    code = models.CharField(max_length=30)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
-    
-    class Meta:
-        verbose_name = 'diagnóstico'
-        verbose_name_plural = 'diagnósticos'
-    
-    def __str__(self):
-        return self.name
+
+
 
 class Visit(models.Model):
     id = models.AutoField(primary_key=True)
@@ -120,14 +73,13 @@ class Visit(models.Model):
     patient = models.ForeignKey(Patient, null=False,on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, null=False,on_delete=models.CASCADE)
     date = models.DateField(max_length=30)
-    diagnosis = models.ForeignKey(Diagnosis,null = True, on_delete=models.PROTECT)
-    treatment = models.ForeignKey(Treatment,null = True,on_delete=models.PROTECT)
+    procedure = models.ForeignKey(Procedure,null = True,on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         verbose_name = 'visita'
-        verbose_name_plural = 'vistas'
+        verbose_name_plural = 'visitas'
         
     def __str__(self):
         return str(self.date)

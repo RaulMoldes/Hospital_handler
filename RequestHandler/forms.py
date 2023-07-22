@@ -1,5 +1,5 @@
 from django import forms
-from .models import Patient,Doctor,Visit,Diagnosis,Treatment
+from .models import Patient,Doctor,Visit,Procedure
 from LoginHandler.models import User
 
 class patient_form(forms.ModelForm):
@@ -40,9 +40,8 @@ class visit_form(forms.ModelForm):
     doctor = forms.ModelChoiceField(queryset=Doctor.objects.all(),label="Doctor",widget=forms.Select(attrs={'class': 'form-control'}))
     date = forms.DateField(label="Fecha de la visita",widget=forms.DateInput(attrs={'class': 'form-control'}))
     hospital = forms.ModelChoiceField(queryset=User.objects.all(),label="Hospital de referencia",widget = forms.Select(attrs={'class':'form-control'}))
-    diagnosis = forms.ModelChoiceField(queryset=Diagnosis.objects.all(),label="Diagnóstico establecido",widget = forms.Select(attrs={'class':'form-control'}))
-    treatment = forms.ModelChoiceField(queryset=Treatment.objects.all(),label="Tratamiento prescrito",widget = forms.Select(attrs={'class':'form-control'}))
+    procedure = forms.ModelChoiceField(queryset=Procedure.objects.all(),label="Diagnóstico establecido",widget = forms.Select(attrs={'class':'form-control'}))
     
     class Meta:
-        model = Doctor
-        fields = ['hospital','patient', 'doctor','date','diagnosis', 'treatment']
+        model = Visit
+        fields = ['hospital','patient', 'doctor','date','procedure']
