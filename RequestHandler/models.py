@@ -69,7 +69,7 @@ class Procedure(models.Model):
 
 class Visit(models.Model):
     id = models.AutoField(primary_key=True)
-    hp_uuid = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
+    hospital = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, null=False,on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, null=False,on_delete=models.CASCADE)
     date = models.DateField(max_length=30)

@@ -38,9 +38,9 @@ class visit_form(forms.ModelForm):
         
     patient = forms.ModelChoiceField(queryset=Patient.objects.all(),label="Paciente",widget=forms.Select(attrs={'class': 'form-control'}))
     doctor = forms.ModelChoiceField(queryset=Doctor.objects.all(),label="Doctor",widget=forms.Select(attrs={'class': 'form-control'}))
-    date = forms.DateField(label="Fecha de la visita",widget=forms.DateInput(attrs={'class': 'form-control'}))
+    date = forms.DateField(label="Fecha de la visita",input_formats=['%d/%m/%Y'],widget=forms.DateInput(attrs={'class': 'form-control','placeholder':'día/mes/año'}))
     hospital = forms.ModelChoiceField(queryset=User.objects.all(),label="Hospital de referencia",widget = forms.Select(attrs={'class':'form-control'}))
-    procedure = forms.ModelChoiceField(queryset=Procedure.objects.all(),label="Diagnóstico establecido",widget = forms.Select(attrs={'class':'form-control'}))
+    procedure = forms.ModelChoiceField(queryset=Procedure.objects.all(),label="Motivo de la visita",widget = forms.Select(attrs={'class':'form-control'}))
     
     class Meta:
         model = Visit

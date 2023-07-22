@@ -123,5 +123,11 @@ def doctor_data(request,doctor_id):
 @login_required
 def visit_data(request,visit_id):
     visit = Visit.objects.get(id=visit_id)
-    return render(request,"RequestHandler/visit_data.html",{"visit_data":visit})
+    if request.method == 'POST':
+        form = visit_form(request.POST, instance=visit)
+        if form.is_valid():
+            form.save()
+    else:
+        form = visit_form(instance=visit)
+    return render(request,"RequestHandler/visit_data.html",{"visit_data":visit,"form":form})
 
