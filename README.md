@@ -1,4 +1,4 @@
-# Hospital_handling
+# Hospital_handler
 A brand new hospital-handling webapp made with django.
 
 Features and functionalities:
