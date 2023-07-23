@@ -18,4 +18,4 @@ Features and functionalities:
 - Modify existing doctors, visits and patients.
 
 Here are some pictures which illustrate parts of it!:
-https://github.com/RaulMoldes/Hospital_handler/figs/hospital_handler1.png
+https://github.com/RaulMoldes/Hospital_handler/tree/master/figs/hospital_handler1.png
