@@ -9,7 +9,6 @@ from datetime import datetime
 class Doctor(models.Model):
     id = models.AutoField(primary_key=True)
     hospital = models.ForeignKey(User, null = True, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="doctors",default='doctors/doc1.png')
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -31,7 +30,6 @@ class Patient(models.Model):
     id = models.AutoField(primary_key=True)
     hospital = models.ForeignKey(User,null = True, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor,null = True, on_delete=models.PROTECT)
-    image = models.ImageField(upload_to="patients",default='patients/pat1.png')
     name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -63,7 +61,7 @@ class Procedure(models.Model):
         verbose_name_plural = 'procedimientos'
     
     def __str__(self):
-        return self.name
+        return self.name + '|' + self.subsection +'|' +self.section
 
 
 

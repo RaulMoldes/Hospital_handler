@@ -6,7 +6,6 @@ class patient_form(forms.ModelForm):
     
     name = forms.CharField(label="Nombre",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
     surname = forms.CharField(label="Apellido",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    image = forms.ImageField(label="Foto de perfil",widget=forms.FileInput(attrs={'class':  'file-input'}))
     email = forms.EmailField(label="E-mail",max_length=65,widget=forms.EmailInput(attrs={'class': 'form-control'}))
     hospital = forms.ModelChoiceField(queryset=User.objects.all(),label="Hospital de referencia",widget = forms.Select(attrs={'class':'form-control'}))
     doctor = forms.ModelChoiceField(queryset=Doctor.objects.all(),label="Médico de cabecera",widget = forms.Select(attrs={'class':'form-control'}))
@@ -14,14 +13,13 @@ class patient_form(forms.ModelForm):
     phone_number = forms.CharField(label="Nº de teléfono",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
     class Meta:
         model = Patient
-        fields = ['name', 'surname','image','doctor','email', 'hospital','address','phone_number']
+        fields = ['name', 'surname','doctor','email', 'hospital','address','phone_number']
         
 
 class doctor_form(forms.ModelForm):
         
     name = forms.CharField(label="Nombre",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
     surname = forms.CharField(label="Apellido",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
-    image = forms.ImageField(label="Foto de perfil",widget=forms.FileInput(attrs={'class': 'file-input'}))
     email = forms.EmailField(label="E-mail",max_length=65,widget=forms.EmailInput(attrs={'class': 'form-control'}))
     hospital = forms.ModelChoiceField(queryset=User.objects.all(),label="Hospital de referencia",widget = forms.Select(attrs={'class':'form-control'}))
     department = forms.CharField(label="Departamento",max_length=65,widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -30,7 +28,7 @@ class doctor_form(forms.ModelForm):
     
     class Meta:
         model = Doctor
-        fields = ['name', 'surname','image','email', 'hospital','department','address','phone_number']
+        fields = ['name', 'surname','email', 'hospital','department','address','phone_number']
         
 
 
