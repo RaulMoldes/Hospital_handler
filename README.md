@@ -1,5 +1,5 @@
 # Hospital_handler
-A brand new hospital-handling webapp made with django.
+A hospital-handling webapp made with django.
 
 Features and functionalities:
 
@@ -7,7 +7,7 @@ Features and functionalities:
 
 - Register patients
 
-- Set up citations between doctors and patients, selecting the date of the citation and the cause of it(The cause is one of the procedures of SNOMED_CT Terminology).
+- Set up citations between doctors and patients, selecting the date of the citation and the cause of it.
 
 - Delete patients and visits.
 
