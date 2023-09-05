@@ -1,45 +1,54 @@
-{%extends "RequestHandler/base.html" %}
-{%load static%}
-{%block content%}
+{%extends "RequestHandler/base.html" %} {%load static%} {%block content%}
 
 <!-- lista de pacientes -->
 <div class="container">
-    <h1 class="site-heading">Próximas visitas</h1>
+  <h1 class="site-heading">Próximas visitas</h1>
 
-    <div class="col-mt-5" >
-<table class="table table-light table-borderless" style= "border-radius:10px" border=0>
-    <thead>
-    <tr>
-        <th class="col col-title" >Doctor</th>
-        <th class="col col-title" >Paciente</th>
-        <th class="col col-title" >Fecha</th>
-        <th class="col col-title" >Motivo de la visita</th>
-        <th class="col col-title" colspan="2">Acciones</th>
-      
-        <!-- Columnas -->
-    </tr>
-    </thead>
-    <tbody>
-    {% for visit in visits %}
+  <div class="col-mt-5">
+    <table
+      class="table table-light table-borderless"
+      style="border-radius: 10px"
+      border="0"
+    >
+      <thead>
+        <tr>
+          <th class="col col-title">Doctor</th>
+          <th class="col col-title">Paciente</th>
+          <th class="col col-title">Fecha</th>
+          <th class="col col-title">Motivo de la visita</th>
+          <th class="col col-title" colspan="2">Acciones</th>
 
-    {%if visit.hospital == currentuser%}
-    <tr>
-        <td class="col col-display">{{ visit.doctor.name }} {{visit.doctor.surname}}</td>
-        <td class="col col-display">{{ visit.patient.name }} {{visit.patient.surname}}</td>
-        <td class="col col-display">{{ visit.date }}</td>
-        <td class="col col-display">{{ visit.procedure.name }}</td>
-        <td class="col col-display"><a href="{% url 'VisitData' visit.id %}">Modificar datos</a></td>
-        <td class="col col-display"><a href="{% url 'DeleteVisit' visit.id %}">Borrar</a></td>
-        
-    </tr>
-    {%endif%}
-    <!-- Filas -->
-    {% endfor %}
-    </tbody>
-        </table>
-            <a class = "btn btn-xl" style="align-self:right" href="{% url 'AddVisit' %}">Añadir visita</a>
-        </div>
-        <br>
-        <br>
-    </div>
+          <!-- Columnas -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for visit in visits %} {%if visit.hospital == currentuser%}
+        <tr>
+          <td class="col col-display">
+            {{ visit.doctor.name }} {{visit.doctor.surname}}
+          </td>
+          <td class="col col-display">
+            {{ visit.patient.name }} {{visit.patient.surname}}
+          </td>
+          <td class="col col-display">{{ visit.date }}</td>
+          <td class="col col-display">{{ visit.cause }}</td>
+          <td class="col col-display">
+            <a href="{% url 'VisitData' visit.id %}">Modificar datos</a>
+          </td>
+          <td class="col col-display">
+            <a href="{% url 'DeleteVisit' visit.id %}">Borrar</a>
+          </td>
+        </tr>
+        {%endif%}
+        <!-- Filas -->
+        {% endfor %}
+      </tbody>
+    </table>
+    <a class="btn btn-xl" style="align-self: right" href="{% url 'AddVisit' %}"
+      >Añadir visita</a
+    >
+  </div>
+  <br />
+  <br />
+</div>
 {%endblock%}

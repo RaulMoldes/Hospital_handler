@@ -58,7 +58,7 @@ ROOT_URLCONF = 'hospital_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/raulm/OneDrive/Escritorio/Git/Hospital_Handler/hospital_app/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'hospital_app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,8 +120,6 @@ USE_I18N = True
 
 USE_L10N = True
 
-# USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -129,7 +127,6 @@ USE_L10N = True
 # STATIC CONFIGURATION
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = 'C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/static/'
 STATIC_ROOT = ''
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'hospital_app/static'),)
 # MEDIA CONFIGURATION
@@ -138,12 +135,3 @@ MEDIA_URL = '/media/'
 
 
 DEBUG = True
-
-
-# MAIL CONFIGURATION
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.googlemail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_KEY')
