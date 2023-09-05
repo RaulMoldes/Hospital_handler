@@ -55,11 +55,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'hospital_app.urls'
 
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/templates'],
+        'DIRS': ['C:/Users/raulm/OneDrive/Escritorio/Git/Hospital_Handler/hospital_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,13 +78,13 @@ WSGI_APPLICATION = 'hospital_app.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-     'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'hospital_handler',
-        'USER':'postgres',
-        'PASSWORD':'2004Mimejorhermano',
-        'HOST':'localhost',
-        'DATABASE_PORT':'5432',
+        'USER': 'postgres',
+        'PASSWORD': 'EazyE1995',
+        'HOST': 'localhost',
+        'DATABASE_PORT': '5492',
     }
 }
 
@@ -121,31 +120,30 @@ USE_I18N = True
 
 USE_L10N = True
 
-#USE_TZ = True
+# USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-##from decouple import config
-##STATIC CONFIGURATION
+# from decouple import config
+# STATIC CONFIGURATION
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = 'C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/static/'
-STATIC_ROOT =  ''
-STATICFILES_DIRS = ( os.path.join(BASE_DIR,'hospital_app/static'),)
-#MEDIA CONFIGURATION
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# STATIC_ROOT = 'C:/Users/raulm/OneDrive/Escritorio/Hospital_Handler/hospital_app/hospital_app/static/'
+STATIC_ROOT = ''
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'hospital_app/static'),)
+# MEDIA CONFIGURATION
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
 DEBUG = True
 
 
-#MAIL CONFIGURATION
+# MAIL CONFIGURATION
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.googlemail.com'
-EMAIL_USE_TLS=True
-EMAIL_PORT=587
-EMAIL_HOST_USER= os.environ.get('EMAIL_USER')
-EMAIL_HOST_PASSWORD= os.environ.get('EMAIL_KEY')
-
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_KEY')

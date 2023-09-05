@@ -1,9 +1,10 @@
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.3), rgba(47, 23, 15, 0.3)), url("../img/fig1.avif");
+  background: linear-gradient(rgba(47, 23, 15, 0.3), rgba(47, 23, 15, 0.3)), url("../img/fig4.png");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  
 }
 
 h1,

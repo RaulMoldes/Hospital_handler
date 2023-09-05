@@ -1,123 +1,168 @@
 <DOCTYPE html>
-    <html lang="es">
-        <head>
-            <title>Home</title>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <!-- Bootstrap -->
-       <!-- {% load bootstrap5 %}
+  <html lang="es">
+    <head>
+      <title>Home</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Bootstrap -->
+      <!-- {% load bootstrap5 %}
         {% bootstrap_css %}-->
-        {%load static %}
-        {%load staticfiles%}
-        
-        <link href= "{%static 'hospital_app/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
-    
-         <!-- Fonts -->
-        
-         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
-         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-         
-    
-        <!-- Styles -->
-        <link href="{%static 'hospital_app/css/hospital_handler_styles.css'%}" rel="stylesheet">
-        
-        </head>
-        
-        <body>
-    
-        <h1 class="site-heading text-center text-white d-none d-lg-block">
-          
-            <span class="site-heading-lower">Hospital-Handler</span>
-          </h1>
-    
-    
-     <!-- Navbar -->
-     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      {%load static %}
+
+      <link
+        href="{%static 'hospital_app/vendor/bootstrap/css/bootstrap.min.css'%}"
+        rel="stylesheet"
+      />
+
+      <!-- Fonts -->
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
+        rel="stylesheet"
+      />
+
+      <!-- Styles -->
+      <link
+        href="{%static 'hospital_app/css/hospital_handler_styles.css'%}"
+        rel="stylesheet"
+      />
+    </head>
+
+    <body>
+      <h1 class="site-heading text-center text-white d-none d-lg-block">
+        <span class="site-heading-lower">Hospital-Handler</span>
+      </h1>
+
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="container">
-          <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="home.html">Hospital-Handler</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <a
+            class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+            href="home.html"
+            >Hospital-Handler</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item active px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="{% url 'Home'%}">Inicio</a>
+                <a
+                  class="nav-link text-uppercase text-expanded"
+                  href="{% url 'Home'%}"
+                  >Inicio</a
+                >
               </li>
               {%if request.user.is_authenticated %}
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/doctors/">Mis médicos</a>
+                <a
+                  class="nav-link text-uppercase text-expanded"
+                  href="/doctors/"
+                  >Mis médicos</a
+                >
               </li>
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/patients/">Mis pacientes</a>
+                <a
+                  class="nav-link text-uppercase text-expanded"
+                  href="/patients/"
+                  >Mis pacientes</a
+                >
               </li>
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/visits/">Visitas programadas</a>
+                <a class="nav-link text-uppercase text-expanded" href="/visits/"
+                  >Visitas programadas</a
+                >
               </li>
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/auth/logout">Cerrar sesión</a>
+                <a
+                  class="nav-link text-uppercase text-expanded"
+                  href="/auth/logout"
+                  >Cerrar sesión</a
+                >
               </li>
               {%else%}
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/auth/login">Iniciar sesión</a>
+                <a
+                  class="nav-link text-uppercase text-expanded"
+                  href="/auth/login"
+                  >Iniciar sesión</a
+                >
               </li>
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/auth/register">Registrarse</a>
+                <a
+                  class="nav-link text-uppercase text-expanded"
+                  href="/auth/register"
+                  >Registrarse</a
+                >
               </li>
               {%endif%}
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/contact/">Contacto</a>
+                <a
+                  class="nav-link text-uppercase text-expanded"
+                  href="/contact/"
+                  >Contacto</a
+                >
               </li>
               <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="/blog/">Blog</a>
+                <a class="nav-link text-uppercase text-expanded" href="/blog/"
+                  >Blog</a
+                >
               </li>
-             
             </ul>
           </div>
         </div>
       </nav>
-    
-    
-    {%block content%}
-    {%endblock%}
 
-    
+      {%block content%} {%endblock%}
 
-    <!-- Footer -->
-    <footer class="footer text-faded text-center py-5">
+      <!-- Footer -->
+      <footer class="footer text-faded text-center py-5">
         <div class="container">
           <p class="m-0">
-              <a href="#" class="link">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-              <a href="#" class="link">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-              <a href="#" class="link">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
+            <a href="#" class="link">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <a href="#" class="link">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <a href="#" class="link">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
           </p>
           <p class="m-0 mbt">
-              <a href="sample.html" class="link">Política de privacidad</a> ·
-              <a href="sample.html" class="link">Aviso legal</a> ·
-              <a href="sample.html" class="link">Cookies</a>
+            <a href="sample.html" class="link">Política de privacidad</a> ·
+            <a href="sample.html" class="link">Aviso legal</a> ·
+            <a href="sample.html" class="link">Cookies</a>
           </p>
           <p class="m-0 mbt1">&copy; Hospital Handler 2023</p>
         </div>
       </footer>
-  
+
       <!-- Bootstrap -->
       <script src="{%static 'hospital_app/vendor/jquery/jquery.min.js'%}"></script>
       <script src="{%static 'hospital_app/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-     <!-- {% bootstrap_javascript %}-->
-  
-      </body>
-</html>
+      <!-- {% bootstrap_javascript %}-->
+    </body>
+  </html></DOCTYPE
+>
